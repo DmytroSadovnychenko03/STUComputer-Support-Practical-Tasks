@@ -1,0 +1,74 @@
+---
+title: "Task2"
+author: "Dmytro Sadovnychenko"
+date: "10/01/2024"
+format:
+  html:
+    embed-resources: true
+editor: source
+---
+
+# Task 2. Subsetting data. Working with NA
+## Question 1 
+
+# Create the next random vector:
+v <- rnorm(50)
+
+# For the vector, print:
+
+# 10th item
+v[10]
+
+# items from 10th to 20th (including 20th item)
+v[10:20]
+
+# 10 items starting from 5th
+v[5:(5+9)]
+
+# all items bigger than 0
+v[v > 0]
+
+# last 5 items
+v[(length(v)-4):length(v)]
+
+## Question 2
+
+# Create the next data frame:
+df <- data.frame(a = rnorm(50), 
+                 b = 1:50, 
+                 cc = sample(letters, 50, replace = TRUE))
+
+# For the data frame, find and print:
+
+# the last 10 rows
+tail(df, 10)
+
+# 15th item of column 'cc'
+df$cc[15]
+
+# subset columns 'a' and 'b' and rows from 10th to 20th (including 20th)
+df[10:20, c("a", "b")]
+
+# a new vector from column 'b'
+new_vector_b <- df$b
+new_vector_b
+
+## Question 3 
+
+# Create the next random vector:
+v_na <- rnorm(30)
+num_na <- sample(10, 1)
+v_na[sample(30, num_na)] <- NA
+
+# For this vector:
+
+# print all not NA items
+v_na[!is.na(v_na)]
+
+# find how many NA values the vector has
+sum(is.na(v_na))
+
+# find min, max, and mean for the vector
+min(v_na, na.rm = TRUE)
+max(v_na, na.rm = TRUE)
+mean(v_na, na.rm = TRUE)
